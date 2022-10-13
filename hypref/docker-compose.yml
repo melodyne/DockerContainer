@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  customer_service:
+    build:
+      context: .
+    ports:
+      - '8021:9601'
+      - '8022:9602'
+      - '8023:9603'
+    volumes:
+      - ".:/opt/www"
+#      - "./config/routes:/opt/www/config/routes"
+#      - "./app:/opt/www/app"
+#      - "./runtime:/opt/www/runtime"
+    env_file: .env
+
+#  redis:
+#    image: redis
+
+  # prometheus:
+  #     image: prom/prometheus
+  #     volumes:
+  #     - "./prometheus.yaml:/etc/prometheus/prometheus.yml"
+  #     - "./data/prometheus:/prometheus"
+
+  # grafana:
+  #     image: grafana/grafana
+  #     ports:
+  #     - '8024:3000'
+  #     volumes:
+  #     - "./data/grafana:/var/lib/grafana"
